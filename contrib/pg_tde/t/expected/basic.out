@@ -12,9 +12,11 @@ CREATE EXTENSION IF NOT EXISTS pg_tde;
 		ORDER BY pg_proc.oid::regprocedure::text;
               oid              
 -------------------------------
+ pg_tde_delete_default_key()
+ pg_tde_delete_key()
  pg_tde_is_encrypted(regclass)
  pg_tde_version()
-(2 rows)
+(4 rows)
 
 	
 SELECT extname, extversion FROM pg_extension WHERE extname = 'pg_tde';
