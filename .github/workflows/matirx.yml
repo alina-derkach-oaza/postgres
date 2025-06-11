@@ -15,7 +15,7 @@ jobs:
         compiler: [gcc, clang]
         build_type: [debugoptimized]
         build_script: [make, meson]
-    uses: ./.github/workflows/psp-reusable.yml
+    uses: ./.github/workflows/build-and-test.yml
     with:
         os: ${{ matrix.os }}
         compiler: ${{ matrix.compiler }}
@@ -32,7 +32,7 @@ jobs:
         compiler: [gcc, clang]
         build_type: [debugoptimized]
         build_script: [make, meson]
-    uses: ./.github/workflows/psp-reusable.yml
+    uses: ./.github/workflows/build-and-test.yml
     with:
         os: ${{ matrix.os }}
         compiler: ${{ matrix.compiler }}
