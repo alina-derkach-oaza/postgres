@@ -8,7 +8,7 @@ on:
 
 jobs:
   main:
-    name: Main Build and Test matrix
+    name: Main matrix
     strategy:
       matrix:
         os: [ubuntu-22.04]
@@ -24,7 +24,7 @@ jobs:
     secrets: inherit
 
   arm:
-    name: ARM Build and Test matix
+    name: ARM matrix
     if: github.event_name != 'pull_request'
     strategy:
       matrix:
