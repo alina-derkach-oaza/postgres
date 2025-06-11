@@ -137,3 +137,22 @@ jobs:
             src/src/test/*/results
             src/src/test/*/tmp_check
           retention-days: 3
+
+  slack-notification:
+    #if: ${{ failure() }}
+    #needs: [ test, test-default-tde ]
+    name: Slack Notification on CI failure
+    runs-on: ubuntu-22.04
+    env:
+      SLACK_WEBHOOK: ${{ secrets.SLACK_TOKEN_PMM_CI }}
+      SLACK_CHANNEL: "pmm-ci"
+
+    steps:
+    - name: Post
+      uses: slackapi/slack-github-action@v2.1.0
+      with:
+        method: chat.postMessage
+        token: ${{ secrets.SLACK_TOKEN_PMM_CI }}
+        payload: |
+          channel: postgresql-test
+          text: "howdy <!channel>!"
